@@ -1,5 +1,12 @@
 .message {
   display: flex;
+  gap: 10px;
+  &.user {
+    align-self: flex-end;
+  }
+}
+.message-wrapper {
+  display: flex;
   align-items: center;
   line-height: 24px;
   background: var(--color-bg-message);
@@ -8,16 +15,16 @@
   margin-right: 20px;
   padding: 10px;
   color: white;
+  width: 100%;
 
   &.bot {
     background: white;
     border: 1px solid #1b3878;
-    color: #15172B;
+    color: #15172b;
     border-radius: 25px 25px 25px 0px;
   }
 
   &.user {
-    align-self: flex-end;
     border-radius: 25px 25px 0px 25px;
   }
 
@@ -25,4 +32,11 @@
     padding: 5px;
     word-break: break-word;
   }
+}
+
+.message .botAvatar {
+  width: 50px;
+  height: 50px;
+  align-self: flex-end;
+  border: none;
 }

@@ -14,6 +14,7 @@ export const Chat = () => {
   const [sessionId, setSessionId] = useState("");
   const [messages, setMessages] = useState([]);
   const [language, setLanguage] = useState("en");
+  const [name, setName] = useState("Maria");
   const messagesList = useRef();
   const refs = messages.reduce((acc, value) => {
     acc[value.id] = React.createRef();
@@ -32,7 +33,7 @@ export const Chat = () => {
     const startFun = async () => {
       setIsLoading(true);
       setLanguage(searchParams.get("language") || "en");
-      const name = searchParams.get("name") || "Maria";
+      setName(searchParams.get("name") || "Maria");
       await start({language, name});
       setIsLoading(false);
     };
@@ -83,7 +84,7 @@ export const Chat = () => {
       ) : messages && messages.length > 0 ? (
         <div className="messages-list" ref={messagesList}>
           {messages.map(({id, type, message}) => {
-            return <Message innerRef={refs[id]} key={id} type={type} message={message} />;
+            return <Message innerRef={refs[id]} key={id} type={type} message={message} botName={name} />;
           })}
         </div>
       ) : (
