@@ -39,6 +39,7 @@ const FormMessage = ({onSend, language}) => {
     onSend(message);
     setMessage("");
     textArea.current.innerText = "";
+    resetTranscript();
   };
   const cancelRecording = () => {
     resetTranscript();

@@ -47,6 +47,7 @@ export const Chat = () => {
   }, []);
 
   const handleMessage = (message, type) => {
+    if (!message) return;
     const id = uuid();
     setMessages((messages) => [...messages, {id: id, type: type, message: message}]);
   };
