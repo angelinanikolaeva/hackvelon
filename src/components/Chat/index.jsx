@@ -56,7 +56,10 @@ export const Chat = () => {
     handleMessage(initial_response, "bot");
   };
   const post = async (message) => {
-    await postMessage({session_id: sessionId, message: message});
+    const {
+      data: {posted_message},
+    } = await postMessage({session_id: sessionId, message: message});
+    handleMessage(posted_message);
     getBotResponse();
   };
   const getBotResponse = async () => {
@@ -68,7 +71,6 @@ export const Chat = () => {
 
   const onSend = useCallback(
     (message) => {
-      handleMessage(message, "user");
       post(message);
     },
     [sessionId]
