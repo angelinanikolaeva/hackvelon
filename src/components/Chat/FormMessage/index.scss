@@ -21,23 +21,6 @@
       align-items: center;
       min-height: 70px;
 
-      .message-button {
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-        width: 32px;
-        border-radius: 50%;
-        background: var(--color-chat-button);
-        &.send {
-          margin-right: 12px;
-        }
-      }
-
       .text-area-wrapper {
         flex: 1;
         min-height: 48px;
@@ -151,4 +134,85 @@
       }
     }
   }
+}
+
+.recording-line {
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  border-radius: 12px;
+  height: 3px;
+  align-self: center;
+  width: 40px;
+  animation: bounce 2s ease-in infinite;
+
+  @keyframes bounce {
+    0% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(3);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+}
+.message-button {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: var(--color-chat-button);
+  &.send {
+    margin-right: 12px;
+  }
+  &.recording-icon {
+    background: red;
+    position: relative;
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: 0px 0px 30px red;
+    // transition: transform ease 0.5s, box-shadow ease 0.5s;
+    animation: orbit-shadow 2s ease-in infinite;
+
+    @keyframes orbit-shadow {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      60% {
+        transform: scale(1.2);
+      }
+      80% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+}
+.recording-cancel-button {
+  background: #9498a1;
+  color: white;
+  margin-right: 32px;
+  align-self: flex-end;
+  &:hover {
+    background: #8b8f97;
+  }
+}
+.recording-cancel {
+  display: flex;
+  color: white;
 }
