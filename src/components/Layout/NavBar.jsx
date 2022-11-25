@@ -6,7 +6,7 @@ const NavBar = () => {
   const navActions = [
     {key: "", label: "Main"},
     {key: "chat", label: "Chat"},
-    {key: "bots", label: "Bots"},
+    
   ];
   const [activeScreen, selectActiveScreen] = useState("main");
 

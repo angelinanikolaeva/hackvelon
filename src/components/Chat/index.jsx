@@ -1,4 +1,5 @@
 import React, {useState, useCallback, useRef, useEffect} from "react";
+import { useSearchParams} from "react-router-dom";
 import {v4 as uuid} from "uuid";
 import {startSession, postMessage, getResponse} from "../../constants/api.js";
 import "./index.scss";
@@ -6,6 +7,8 @@ import Message from "./Message";
 import FormMessage from "./FormMessage";
 
 export const Chat = () => {
+  const [isloaded, setLoaded] = useState(false)
+  let [searchParams, setSearchParams] = useSearchParams();
   const [sessionId, setSessionId] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesList = useRef();
@@ -22,15 +25,29 @@ export const Chat = () => {
     });
   }, [messages]);
 
+  useEffect(() => {
+    if (!isloaded) {
+      
+      const language = (searchParams.get("language"))||"en";
+      const name = (searchParams.get("name"))||"Maria";
+      start({language, name});
+
+      setLoaded(true)
+    }
+  return () => {}
+}, []);
+    
+
+
   const handleMessage = (message, type) => {
     const id = uuid();
     setMessages((messages) => [...messages, {id: id, type: type, message: message}]);
   };
 
-  const start = async () => {
+  const start = async ({language,name}) => {
     const {
       data: {session_id, initial_response},
-    } = await startSession({language: "en", name: "Beata"});
+    } = await startSession({language:language , name: name});
     setSessionId(session_id);
     handleMessage(initial_response, "bot");
   };
