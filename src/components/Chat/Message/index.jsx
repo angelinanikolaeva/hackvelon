@@ -9,7 +9,7 @@ function areEqual({message: prevMessage}, {message}) {
 const Message = React.memo(({type, message, innerRef, botName}) => {
   return (
     <div className={`message ${type === "bot" ? "bot" : "user"}`}>
-      {type === "bot" ? <BotAvatar name={botName} /> : <></>}
+      {type === "bot" ? <BotAvatar name={botName} width={50} height={50} /> : <></>}
       <div ref={innerRef} className={`message-wrapper ${type === "bot" ? "bot" : "user"}`}>
         <span className="message-content">{message}</span>
       </div>
