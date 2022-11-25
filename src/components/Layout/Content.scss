@@ -1,10 +1,10 @@
 .content {
   height: 100%;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
   .main-container {
     flex: 1;
     overflow: hidden;

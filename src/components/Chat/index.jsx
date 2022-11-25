@@ -1,11 +1,73 @@
-import React from "react";
-import {Speech} from "../Speech";
+import React, {useState, useCallback, useRef, useEffect} from "react";
+import {v4 as uuid} from "uuid";
+import {startSession, postMessage, getResponse} from "../../constants/api.js";
+import "./index.scss";
+import Message from "./Message";
+import FormMessage from "./FormMessage";
 
 export const Chat = () => {
+  const [sessionId, setSessionId] = useState("");
+  const [messages, setMessages] = useState([]);
+  const messagesList = useRef();
+  const refs = messages.reduce((acc, value) => {
+    acc[value.id] = React.createRef();
+    return acc;
+  }, {});
+
+  useEffect(() => {
+    const lastMessageId = messages[messages.length - 1]?.id || null;
+    refs[lastMessageId]?.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [messages]);
+
+  const handleMessage = (message, type) => {
+    const id = uuid();
+    setMessages((messages) => [...messages, {id: id, type: type, message: message}]);
+  };
+
+  const start = async () => {
+    const {
+      data: {session_id, initial_response},
+    } = await startSession({language: "en", name: "Beata"});
+    setSessionId(session_id);
+    handleMessage(initial_response, "bot");
+  };
+  const post = async (message) => {
+    await postMessage({session_id: sessionId, message: message});
+    getBotResponse();
+  };
+  const getBotResponse = async () => {
+    const {
+      data: {response},
+    } = await getResponse({session_id: sessionId});
+    handleMessage(response, "bot");
+  };
+
+  const onSend = useCallback(
+    (message) => {
+      handleMessage(message, "user");
+      post(message);
+    },
+    [sessionId]
+  );
   return (
-    <div>
+    <div className="chat-page">
       Chat
-      <Speech />
+      <div className="buttons">
+        <button onClick={start}>Start</button>
+      </div>
+      {messages && messages.length > 0 ? (
+        <div className="messages-list" ref={messagesList}>
+          {messages.map(({id, type, message}) => {
+            return <Message innerRef={refs[id]} key={id} type={type} message={message} />;
+          })}
+        </div>
+      ) : (
+        <div className="no-messages">No messages yet</div>
+      )}
+      <FormMessage onSend={onSend} />
     </div>
   );
 };

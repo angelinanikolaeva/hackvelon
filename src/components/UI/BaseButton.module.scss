@@ -1,0 +1,10 @@
+button {
+  padding: 5% 5%;
+  color: var(--color-main);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  &:disabled {
+    color: grey;
+  }
+}

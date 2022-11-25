@@ -15,10 +15,6 @@ body {
   max-width: 100%;
 }
 
-code {
-  font-family: Roboto, Arial, sans-serif;
-}
-
 * {
   box-sizing: border-box;
   outline: 0 !important;
