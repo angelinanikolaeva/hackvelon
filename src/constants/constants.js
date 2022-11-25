@@ -18,3 +18,18 @@ export const bots = [
     personality: "Here is a chat with George Washington, the first president of the United States.",
   },
 ];
+
+export const images = [
+  {
+    name:"Maria",
+    img:'/src/assets/Maria.png'
+  },
+  {
+    name:"Beata",
+    img:'/src/assets/Beata.png'
+  },
+  {
+    name:"George Washington",
+    img:'/src/assets/George Washington.png'
+  },
+]

@@ -2,10 +2,12 @@
 .card{
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(9, 8, 56);
+   align-items: center;
     border-radius: 5px;
-    background-color: #3564ff6b;
-    width:250px;
+    background-color: #ffffff;
+    box-shadow: 5px 2px 2px rgba(255, 255, 255, 0.31);
+    width:220px;
+    height: 270px;
 
     .botName{
         text-align: center;
@@ -19,5 +21,21 @@
         padding: 10px;
         font-size: 15px;
         font-family: 'Montserrat', sans-serif;
+    }
+    .cardButton{
+        text-align: center;
+        text-decoration: none;
+        margin-top: auto;
+        margin-bottom: 15px;
+        width:130px;
+        padding:10px 20px;
+        background-color: #CB4118;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 10px;
+        &:hover{
+            background-color: #bd411b;
+            color: rgb(255, 255, 255);
+        }
     }
 }

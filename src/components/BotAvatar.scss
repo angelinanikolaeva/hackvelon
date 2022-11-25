@@ -1,12 +1,13 @@
-.avatar{
-    border:1px solid  green;
-    width: 120px;
-    height: 120px;
+.botAvatar{
+   
+    border:5px solid #CB4118;
+    width: 130px;
+    height: 130px;
     margin: 0 auto;
     border-radius: 50%;
-    transition: 'outline 0.2s';
-    &:hover{
-        outline: 2px solid #3564ff;
-    }
+    
+    margin-top: -30px;
+   
+    
              
 }

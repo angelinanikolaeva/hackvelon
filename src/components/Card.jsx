@@ -8,10 +8,10 @@ const Card = ({bot}) => {
    
     return (
         <div className="card">
-            <BotAvatar/>
+            <BotAvatar name={bot.name}/>
             <div className="botName">{bot.name}</div> 
             <p className="botDescription">{bot.description}</p>
-            <Link className="button" to={{ pathname: '/chat', search: `?bot=${bot.name}&language=${bot.language}` }}>  Start chat </Link>
+            <Link className="cardButton" to={{ pathname: '/chat', search: `?bot=${bot.name}&language=${bot.language}` }}>  Start chat </Link>
         </div>
     )
 }
