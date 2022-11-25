@@ -1,7 +1,13 @@
 {
   "short_name": "Divine Brain",
   "name": "Divine Brain Chat Bot",
-  "icons": [],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32 16x16"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

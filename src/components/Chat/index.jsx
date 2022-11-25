@@ -33,7 +33,7 @@ export const Chat = () => {
     const startFun = async () => {
       setIsLoading(true);
       setLanguage(searchParams.get("language") || "en");
-      setName(searchParams.get("name") || "Maria");
+      setName(searchParams.get("bot") || "Maria");
       await start({language, name});
       setIsLoading(false);
     };
