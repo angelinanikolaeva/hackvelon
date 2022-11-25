@@ -23,7 +23,7 @@ const HomePage = () => {
                             <option key={index}  value={language.key}>{language.label}</option>
                         )})}
                     </select>
-                <Link className="button" to={{ pathname: '/bots', search: `?language=${value}` }}>  Choose language </Link>
+                <Link className="button" to={{ pathname: '/bots', search: `?language=${value}` }}>  Choose the language </Link>
                 </div>
         </div>
     </div>
