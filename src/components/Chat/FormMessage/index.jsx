@@ -14,7 +14,9 @@ const FormMessage = ({onSend, language}) => {
 
   useEffect(() => {
     setFormMessage(transcript);
-    return () => {};
+    return () => {
+      SpeechRecognition.abortListening();
+    };
   }, [transcript]);
 
   const isVoice = React.useMemo(() => {
