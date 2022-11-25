@@ -1,16 +1,19 @@
 import React, {useState, useCallback, useRef, useEffect} from "react";
-import { useSearchParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import {v4 as uuid} from "uuid";
 import {startSession, postMessage, getResponse} from "../../constants/api.js";
 import "./index.scss";
 import Message from "./Message";
 import FormMessage from "./FormMessage";
+import {TailSpin} from "react-loader-spinner";
 
 export const Chat = () => {
-  const [isloaded, setLoaded] = useState(false)
+  const [isloaded, setLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   let [searchParams, setSearchParams] = useSearchParams();
   const [sessionId, setSessionId] = useState("");
   const [messages, setMessages] = useState([]);
+  const [language, setLanguage] = useState("en");
   const messagesList = useRef();
   const refs = messages.reduce((acc, value) => {
     acc[value.id] = React.createRef();
@@ -26,28 +29,29 @@ export const Chat = () => {
   }, [messages]);
 
   useEffect(() => {
+    const startFun = async () => {
+      setIsLoading(true);
+      setLanguage(searchParams.get("language") || "en");
+      const name = searchParams.get("name") || "Maria";
+      await start({language, name});
+      setIsLoading(false);
+    };
     if (!isloaded) {
-      
-      const language = (searchParams.get("language"))||"en";
-      const name = (searchParams.get("name"))||"Maria";
-      start({language, name});
-
-      setLoaded(true)
+      startFun();
+      setLoaded(true);
     }
-  return () => {}
-}, []);
-    
-
+    return () => {};
+  }, []);
 
   const handleMessage = (message, type) => {
     const id = uuid();
     setMessages((messages) => [...messages, {id: id, type: type, message: message}]);
   };
 
-  const start = async ({language,name}) => {
+  const start = async ({language, name}) => {
     const {
       data: {session_id, initial_response},
-    } = await startSession({language:language , name: name});
+    } = await startSession({language: language, name: name});
     setSessionId(session_id);
     handleMessage(initial_response, "bot");
   };
@@ -69,13 +73,12 @@ export const Chat = () => {
     },
     [sessionId]
   );
+
   return (
     <div className="chat-page">
-      Chat
-      <div className="buttons">
-        <button onClick={start}>Start</button>
-      </div>
-      {messages && messages.length > 0 ? (
+      {isLoading ? (
+        <TailSpin height="80" width="80" color="#1B3878" ariaLabel="tail-spin-loading" radius="1" wrapperStyle={{}} wrapperClass="spinner" visible={true} />
+      ) : messages && messages.length > 0 ? (
         <div className="messages-list" ref={messagesList}>
           {messages.map(({id, type, message}) => {
             return <Message innerRef={refs[id]} key={id} type={type} message={message} />;
@@ -84,7 +87,7 @@ export const Chat = () => {
       ) : (
         <div className="no-messages">No messages yet</div>
       )}
-      <FormMessage onSend={onSend} />
+      <FormMessage onSend={onSend} language={language} />
     </div>
   );
 };

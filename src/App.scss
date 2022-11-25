@@ -8,7 +8,7 @@ html,
   left: 0;
   background-color: white !important;
   display: flex;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -40,20 +40,20 @@ body {
 
 html {
   --color-bg: #ffffff;
-  --color-main: black;
-  --color-chat-button: #3a9afa;
+  --color-main: #15172b;
+  --color-chat-button: #1b3878;
   --color-chat-message: #ffffff;
-  --color-bg-message: #3a9afa;
-  --color-scroll: #3a9afa;
+  --color-bg-message: #1b3878;
+  --color-scroll: #1b3878;
 }
 
 html.dark {
   --color-bg: #161719;
   --color-main: #ffffff;
-  --color-chat-button: #3a9afa;
+  --color-chat-button: #1b3878;
   --color-chat-message: #2c2e32;
-  --color-bg-message: #3a9afa;
-  --color-scroll: #3a9afa;
+  --color-bg-message: #1b3878;
+  --color-scroll: #1b3878;
 }
 
 svg {

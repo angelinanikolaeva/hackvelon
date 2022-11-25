@@ -1,7 +1,7 @@
 import React from "react";
 import BaseButton from "../../UI/BaseButton";
 import "./index.scss";
-import {Send, Voice, Cancel} from "../../../assets/icons/icons.js";
+import {Send, Voice} from "../../../assets/icons/icons.js";
 import {useState, useRef, useEffect} from "react";
 import SpeechRecognition, {useSpeechRecognition} from "react-speech-recognition";
 import {languages} from "../../../constants/constants";
@@ -40,7 +40,13 @@ const FormMessage = ({onSend, language}) => {
     textArea.current.innerText = "";
   };
   const cancelRecording = () => {
+    resetTranscript();
+    SpeechRecognition.abortListening();
+    setRecording(false);
+  };
+  const stopRecording = () => {
     SpeechRecognition.stopListening();
+    setRecording(false);
   };
   const setFormMessage = (text) => {
     setMessage(text);
@@ -71,10 +77,17 @@ const FormMessage = ({onSend, language}) => {
   return (
     <>
       {isRecording && (
-        <div className={`message-button recording-cancel-button`}>
-          <BaseButton className={`recording-cancel`} onClick={cancelRecording}>
-            <Cancel />
-          </BaseButton>
+        <div className="form-message-buttons">
+          <div className={`message-button recording-cancel-button`}>
+            <BaseButton className={`recording-cancel`} onClick={stopRecording}>
+              Stop
+            </BaseButton>
+          </div>
+          <div className={`message-button recording-cancel-button`}>
+            <BaseButton className={`recording-cancel`} onClick={cancelRecording}>
+              Cancel
+            </BaseButton>
+          </div>
         </div>
       )}
       {isRecording && <div className="recording-line"></div>}
@@ -82,7 +95,7 @@ const FormMessage = ({onSend, language}) => {
         <div className="chat-text-area">
           <div className="chat-text-area-inner">
             <div className="text-area-wrapper">
-              <div ref={textArea} className="text-area" contentEditable={true} onInput={onInput} onKeyUp={onKeyUp} onKeyDown={onKeyDown} onBlur={onBlur} onFocus={onFocus} onPaste={onPaste} />
+              <div ref={textArea} className="text-area" contentEditable={isRecording ? false : true} onInput={onInput} onKeyUp={onKeyUp} onKeyDown={onKeyDown} onBlur={onBlur} onFocus={onFocus} onPaste={onPaste} />
               {!message && <div className="text-area-placeholder">Your message</div>}
             </div>
             <div className={`message-button send`}>

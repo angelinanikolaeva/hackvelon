@@ -1,8 +1,8 @@
 import "./App.scss";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Chat } from "./components/Chat";
-import NavBar from "./components/Layout/NavBar";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {Chat} from "./components/Chat";
+// import NavBar from "./components/Layout/NavBar";
 import Content from "./components/Layout/Content";
 import HomePage from "./components/HomePage/HomePage";
 import BotsList from "./components/HomePage/BotsList";
@@ -10,7 +10,7 @@ import BotsList from "./components/HomePage/BotsList";
 export default function App() {
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <Content>
         <Routes>
           <Route path="/chat" element={<Chat />} />
