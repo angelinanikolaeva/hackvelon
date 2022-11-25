@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(9, 8, 56);
+    border-radius: 5px;
+    background-color: #3564ff6b;
+    width:250px;
+
+    .botName{
+        text-align: center;
+        padding: 5px;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .botDescription{
+        text-align: center;
+        padding: 10px;
+        font-size: 15px;
+        font-family: 'Montserrat', sans-serif;
+    }
+}

@@ -3,9 +3,16 @@ import axios from "axios";
 const ApiURL = "http://128.199.46.26:8002";
 
 export async function getBots(params) {
-  return await axios.get(`${ApiURL}/_get_all_chatbots`, {
-    params: params,
-  });
+  try {
+    const resp = await axios.get(`${ApiURL}/_get_all_chatbots`, {
+      params: params,
+    });
+    console.log(resp.data);
+    return resp;
+  } catch (err) {
+    // Handle Error Here
+    console.error(err);
+  }
 }
 
 export async function startSession(params) {
