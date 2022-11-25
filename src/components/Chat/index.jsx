@@ -6,6 +6,8 @@ import "./index.scss";
 import Message from "./Message";
 import FormMessage from "./FormMessage";
 import {TailSpin} from "react-loader-spinner";
+import Header from "../Header.jsx";
+import { bots } from "../../constants/constants.js";
 
 export const Chat = () => {
   const [isloaded, setLoaded] = useState(false);
@@ -82,11 +84,15 @@ export const Chat = () => {
       {isLoading ? (
         <TailSpin height="80" width="80" color="#1B3878" ariaLabel="tail-spin-loading" radius="1" wrapperStyle={{}} wrapperClass="spinner" visible={true} />
       ) : messages && messages.length > 0 ? (
+        
+      
         <div className="messages-list" ref={messagesList}>
+          <Header name={name} language={language}/>
           {messages.map(({id, type, message}) => {
             return <Message innerRef={refs[id]} key={id} type={type} message={message} botName={name} />;
           })}
         </div>
+         
       ) : (
         <div className="no-messages">No messages yet</div>
       )}
