@@ -1,9 +1,9 @@
 
-import "./BotAvatar.scss";
+import image from "../assets/Avatar.png";
 
 const BotAvatar =()=>{
     return (
-        <img className="avatar" alt="avatar" src='/src/assets/Avatar.png'/>
+        <img className="avatar" alt="avatar" src={image}/>
     )
       
    
