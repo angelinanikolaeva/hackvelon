@@ -14,10 +14,15 @@ const FormMessage = ({onSend, language}) => {
 
   useEffect(() => {
     setFormMessage(transcript);
+  }, [transcript]);
+
+  useEffect(() => {
     return () => {
       SpeechRecognition.abortListening();
+      textArea.innerText = "";
+      resetTranscript();
     };
-  }, [transcript]);
+  }, []);
 
   const isVoice = React.useMemo(() => {
     return (!isFocused && !message) || isRecording;
