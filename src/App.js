@@ -1,23 +1,14 @@
-import "./App.css";
+import "./App.scss";
 import React from "react";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {Chat} from "./components/Chat";
+import NavBar from "./components/Layout/NavBar";
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/chat">Chat</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <NavBar />
         <Routes>
           <Route path="/chat" element={<Chat />} />
           <Route path="/" element={<div>Home</div>} />
