@@ -25,3 +25,10 @@ export async function postMessage(params) {
     params: params,
   });
 }
+
+//  params: {'session_id': session_id }
+export async function getResponse(params) {
+  return await axios.get(`${ApiURL}/_get_response`, {
+    params: params,
+  });
+}

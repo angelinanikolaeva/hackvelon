@@ -1,0 +1,28 @@
+.message {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+  background: var(--color-bg-message);
+  border-radius: 25px;
+  width: fit-content;
+  margin-right: 20px;
+  padding: 10px;
+  color: white;
+
+  &.bot {
+    background: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 25px 25px 25px 0px;
+  }
+
+  &.user {
+    align-self: flex-end;
+    border-radius: 25px 25px 0px 25px;
+  }
+
+  .message-content {
+    padding: 5px;
+    word-break: break-word;
+  }
+}
