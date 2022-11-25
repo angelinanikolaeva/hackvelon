@@ -2,6 +2,7 @@
   display: flex;
   gap: 10px;
   position: relative;
+  padding-bottom: 10px;
   &.user {
     align-self: flex-end;
   }
@@ -45,7 +46,7 @@
 .message-voice {
   width: 25px;
   height: 25px;
-  bottom: -15px;
+  bottom: -5px;
   left: 35px;
   position: absolute;
   padding: 0;
