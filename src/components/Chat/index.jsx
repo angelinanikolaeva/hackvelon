@@ -7,7 +7,6 @@ import Message from "./Message";
 import FormMessage from "./FormMessage";
 import {TailSpin} from "react-loader-spinner";
 import Header from "../Header.jsx";
-import { bots } from "../../constants/constants.js";
 
 export const Chat = () => {
   const [isloaded, setLoaded] = useState(false);
@@ -15,7 +14,7 @@ export const Chat = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const [sessionId, setSessionId] = useState("");
   const [messages, setMessages] = useState([]);
-  const [language, setLanguage] = useState("en");
+  const [selectedLanguage, setLanguage] = useState("");
   const [name, setName] = useState("Maria");
   const messagesList = useRef();
   const refs = messages.reduce((acc, value) => {
@@ -34,9 +33,10 @@ export const Chat = () => {
   useEffect(() => {
     const startFun = async () => {
       setIsLoading(true);
-      setLanguage(searchParams.get("language") || "en");
-      setName(searchParams.get("bot") || "Maria");
-      await start({language, name});
+      const [nameS, languageS] = [searchParams.get("bot"), searchParams.get("language")];
+      setLanguage(() => searchParams.get("language") ?? "en");
+      setName(() => searchParams.get("bot") ?? "Maria");
+      await start({language: languageS, name: nameS});
       setIsLoading(false);
     };
     if (!isloaded) {
@@ -81,22 +81,19 @@ export const Chat = () => {
 
   return (
     <div className="chat-page">
-      {isLoading ? (
+      {isLoading || !isloaded ? <></> : <Header name={name} language={selectedLanguage} />}
+      {isLoading || !isloaded ? (
         <TailSpin height="80" width="80" color="#1B3878" ariaLabel="tail-spin-loading" radius="1" wrapperStyle={{}} wrapperClass="spinner" visible={true} />
       ) : messages && messages.length > 0 ? (
-        
-      
         <div className="messages-list" ref={messagesList}>
-          <Header name={name} language={language}/>
           {messages.map(({id, type, message}) => {
             return <Message innerRef={refs[id]} key={id} type={type} message={message} botName={name} />;
           })}
         </div>
-         
       ) : (
         <div className="no-messages">No messages yet</div>
       )}
-      <FormMessage onSend={onSend} language={language} />
+      <FormMessage onSend={onSend} language={selectedLanguage} />
     </div>
   );
 };

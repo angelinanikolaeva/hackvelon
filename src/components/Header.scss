@@ -1,40 +1,41 @@
-.header{
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+  padding-left: 40px;
+  .botAvatar {
+    margin-top: 0;
+  }
+  .info {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    flex: 1;
     align-items: center;
-
-    .info{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       margin: 20px;
-        gap:15px;
-        .botName{
-            font-size: 30px;
-            font-weight: 600;
-            
-        }
-        .language{
-            font-size: 20px;
-            font-weight: 600;
-            color:#CB4118;
-        }
+    margin: 20px;
+    gap: 15px;
+    .botName {
+      font-size: 30px;
+      font-weight: 600;
     }
-    .button{
-        text-align: center;
-        text-decoration: none;
-        margin-right:40px;
-        width:130px;
-        padding:10px 20px;
-        background-color: #CB4118;
-        color: #fff;
-        font-size: 16px;
-        border-radius: 10px;
-        &:hover{
-            background-color: #bd411b;
-            color: rgb(255, 255, 255);
-        }
+    .language {
+      font-size: 20px;
+      font-weight: 600;
+      color: #cb4118;
     }
+  }
+  .button {
+    text-align: center;
+    text-decoration: none;
+    margin-right: 40px;
+    width: 130px;
+    padding: 10px 20px;
+    background-color: #cb4118;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    &:hover {
+      background-color: #bd411b;
+      color: rgb(255, 255, 255);
+    }
+  }
 }
