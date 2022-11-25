@@ -5,6 +5,7 @@ import {Send, Voice} from "../../../assets/icons/icons.js";
 import {useState, useRef, useEffect} from "react";
 import SpeechRecognition, {useSpeechRecognition} from "react-speech-recognition";
 import {languages} from "../../../constants/constants";
+
 const FormMessage = ({onSend, language}) => {
   const [isFocused, setFocused] = useState(false);
   const [isRecording, setRecording] = useState(false);

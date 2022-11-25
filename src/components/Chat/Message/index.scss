@@ -1,6 +1,7 @@
 .message {
   display: flex;
   gap: 10px;
+  position: relative;
   &.user {
     align-self: flex-end;
   }
@@ -39,4 +40,19 @@
   height: 50px;
   align-self: flex-end;
   border: none;
+}
+
+.message-voice {
+  width: 25px;
+  height: 25px;
+  bottom: -15px;
+  left: 35px;
+  position: absolute;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #1b3878;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

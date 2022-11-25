@@ -87,7 +87,7 @@ export const Chat = () => {
       ) : messages && messages.length > 0 ? (
         <div className="messages-list" ref={messagesList}>
           {messages.map(({id, type, message}) => {
-            return <Message innerRef={refs[id]} key={id} type={type} message={message} botName={name} />;
+            return <Message innerRef={refs[id]} key={id} type={type} language={selectedLanguage} message={message} botName={name} />;
           })}
         </div>
       ) : (
