@@ -30,12 +30,10 @@ const Message = React.memo(({type, message, innerRef, botName, language}) => {
   };
 
   const initiateVoicing = () => {
-    if (!isVoicing) {
+    if (!speaking) {
       speak({text: message, voice: getVoice()});
-      setIsVoicing(true);
     } else {
       cancel();
-      setIsVoicing(false);
     }
   };
   return (
@@ -46,7 +44,7 @@ const Message = React.memo(({type, message, innerRef, botName, language}) => {
       </div>
       {type === "bot" ? (
         <button className="message-voice" onClick={initiateVoicing}>
-          {isVoicing ? <Cancel width="20px" height="20px" /> : <Voice width="20px" height="20px" />}
+          {speaking ? <Cancel width="20px" height="20px" /> : <Voice width="20px" height="20px" />}
         </button>
       ) : (
         <></>
