@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/hackvelon/static/css/main.996ac556.css",
-    "main.js": "/hackvelon/static/js/main.effd63ad.js",
+    "main.js": "/hackvelon/static/js/main.054a68c4.js",
     "static/media/George Washington.png": "/hackvelon/static/media/George Washington.b8a3f05384f037a9c329.png",
     "static/media/Maria.png": "/hackvelon/static/media/Maria.b2d4f967aa6242a892a1.png",
     "static/media/Beata.png": "/hackvelon/static/media/Beata.3236f8c33603e10e30a6.png",
     "static/media/brain.png": "/hackvelon/static/media/brain.057432fb4361b6afd3ca.png",
     "index.html": "/hackvelon/index.html",
     "main.996ac556.css.map": "/hackvelon/static/css/main.996ac556.css.map",
-    "main.effd63ad.js.map": "/hackvelon/static/js/main.effd63ad.js.map"
+    "main.054a68c4.js.map": "/hackvelon/static/js/main.054a68c4.js.map"
   },
   "entrypoints": [
     "static/css/main.996ac556.css",
-    "static/js/main.effd63ad.js"
+    "static/js/main.054a68c4.js"
   ]
 }
