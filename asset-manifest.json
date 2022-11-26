@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/hakvelon/static/css/main.e9dad00e.css",
-    "main.js": "/hakvelon/static/js/main.a179e449.js",
-    "static/media/George Washington.png": "/hakvelon/static/media/George Washington.b8a3f05384f037a9c329.png",
-    "static/media/Maria.png": "/hakvelon/static/media/Maria.b2d4f967aa6242a892a1.png",
-    "static/media/Beata.png": "/hakvelon/static/media/Beata.3236f8c33603e10e30a6.png",
-    "static/media/brain.png": "/hakvelon/static/media/brain.057432fb4361b6afd3ca.png",
-    "index.html": "/hakvelon/index.html",
-    "main.e9dad00e.css.map": "/hakvelon/static/css/main.e9dad00e.css.map",
-    "main.a179e449.js.map": "/hakvelon/static/js/main.a179e449.js.map"
+    "main.css": "/hackvelon/static/css/main.996ac556.css",
+    "main.js": "/hackvelon/static/js/main.57539300.js",
+    "static/media/George Washington.png": "/hackvelon/static/media/George Washington.b8a3f05384f037a9c329.png",
+    "static/media/Maria.png": "/hackvelon/static/media/Maria.b2d4f967aa6242a892a1.png",
+    "static/media/Beata.png": "/hackvelon/static/media/Beata.3236f8c33603e10e30a6.png",
+    "static/media/brain.png": "/hackvelon/static/media/brain.057432fb4361b6afd3ca.png",
+    "index.html": "/hackvelon/index.html",
+    "main.996ac556.css.map": "/hackvelon/static/css/main.996ac556.css.map",
+    "main.57539300.js.map": "/hackvelon/static/js/main.57539300.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9dad00e.css",
-    "static/js/main.a179e449.js"
+    "static/css/main.996ac556.css",
+    "static/js/main.57539300.js"
   ]
 }
