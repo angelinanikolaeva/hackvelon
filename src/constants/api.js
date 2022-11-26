@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ApiURL = "http://128.199.46.26:8002";
+const ApiURL = process.env.REACT_APP_API_URL;
 
 export async function getBots(params) {
   try {
