@@ -1,0 +1,66 @@
+.navbar {
+  width: 65px;
+  min-width: 65px;
+  height: 100%;
+  border-right: 1px solid grey;
+  padding: 0px 8px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+  background-color: white;
+  .workspaces-wrapper {
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .workspace-badge {
+    ::v-deep .or-badge__content.is-fixed.is-dot {
+      top: 4px;
+      right: 8px;
+    }
+  }
+
+  .add-icon {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    border-radius: 16px;
+    background-color: transparent;
+    &:hover {
+      // background-color: var(--color-add-space);
+    }
+  }
+  .divider {
+    background: grey;
+    height: 1px;
+  }
+}
+
+.navbar-actions {
+  display: contents;
+
+  .navbar-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    &.active {
+      color: blue;
+      .navbar-action-icon {
+        color: blue;
+      }
+    }
+  }
+}

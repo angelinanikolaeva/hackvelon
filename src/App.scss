@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html,
+#root {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  background-color: white !important;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  * {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-scroll) transparent;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      box-shadow: inset -2px -0px 0px 0px;
+      &:horizontal {
+        box-shadow: inset 0px -2px 0px 0px;
+      }
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+}
+
+html {
+  --color-bg: #ffffff;
+  --color-main: #15172b;
+  --color-chat-button: #1b3878;
+  --color-chat-message: #ffffff;
+  --color-bg-message: #1b3878;
+  --color-scroll: #1b3878;
+}
+
+html.dark {
+  --color-bg: #161719;
+  --color-main: #ffffff;
+  --color-chat-button: #1b3878;
+  --color-chat-message: #2c2e32;
+  --color-bg-message: #1b3878;
+  --color-scroll: #1b3878;
+}
+
+svg {
+  stroke: currentColor;
+  fill: currentColor;
+}

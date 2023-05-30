@@ -1,0 +1,64 @@
+
+.home{
+    display: flex;
+    flex-direction: column;
+    background-image:url("/assets/brain.png");
+    background-size: 55%;
+    background-position:right;
+    background-repeat: no-repeat;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    
+    background-color: #1B3878;
+    padding-right: 150px;
+    
+    .main-part{
+        padding:20px 150px;
+        .main-title{
+            margin-left: -5px;
+        font-size: 70px;
+        font-weight: 900;
+        color: white;
+    }
+    
+    .subtitle{
+        font-size: 1.5rem;
+        font-weight: 400;
+        width: 100%;
+        color: white;
+    }
+    
+
+    .choose-language{
+        display: flex;
+        gap: 10px;
+        padding: 40px 0px 0px 0px;
+        .select{
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            color:#4c4747;
+            
+            
+            }
+        .button{
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #CB4118;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            
+            &:hover{
+                background-color: #bd411b;
+                color: rgb(255, 255, 255);
+            }
+
+        }
+        }
+    }
+    
+}
+    
